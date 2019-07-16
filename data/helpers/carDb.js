@@ -1,5 +1,5 @@
 const knex = require('knex');
-const configOptions = require('../knexfile').development;
+const configOptions = require('../../knexfile').development;
 
 const dbConnect = knex(configOptions);
 
@@ -24,9 +24,9 @@ function add(car) {
 }
 
 function update(id, car) {
-    return db('cars').where({ id }).update( car )
+    return dbConnect('cars').where({ id }).update( car )
 }
 
 function deleteCar(id) {
-    return db('cars').where({ id }).del();
+    return dbConnect('cars').where({ id }).del();
 }
